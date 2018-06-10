@@ -1,0 +1,157 @@
+/*
+	Author: Nicdark
+	Author URI: http://www.nicdarkthemes.com/
+*/
+
+@import "nicdark_shortcodes.css";
+@import "nicdark_menu.css";
+
+/*@import "fontello.css";*/
+@import "animate.css";
+/*@import "magnific-popup.css";*/
+
+
+/****************************************************************************
+	Table of Content
+***************************************************************************
+
+
+SOME BASIC CLASSES
+	1- body
+	2-container
+    3-site
+    4-section
+    5-grid
+    6-width section
+    7-headings tag
+    8-form elements
+    9-parallax section
+
+
+/* 1- START NICDARK FRAMEWORK*/
+body{ margin:0px; padding:0px; overflow-x:hidden; background-color: #ccc; }
+body.nicdark_boxed_img{ background-image: url(../img/slide/img1.jpg) !important; background-size: cover; background-attachment: fixed; }
+body.nicdark_boxed_pattern{ background-image: url(../img/patterns/img1.jpg) !important; background-attachment: fixed; }
+
+/* 2 - CONTAINER */
+.nicdark_container{ width:1200px; margin:auto; padding: 0px; }
+.nicdark_clearfix:after { content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+
+
+
+/* 3- START NICDARK_SITE*/
+.nicdark_site{ float: left; width: 100%; -webkit-transition: all 0.8s ease; -moz-transition: all 0.8s ease; -o-transition: all 0.8s ease; -ms-transition: all 0.8s ease; transition: all 0.8s ease; }
+.nicdark_site > .nicdark_site_fullwidth{ float: left; width: 100%; background-color: #fff; }
+.nicdark_site > .nicdark_site_boxed{ width:1220px; margin:auto; padding: 0px; background-color: #fff; }
+/*START NICDARK_SITE*/
+
+
+
+/* 4 - START NICDARKSECTION*/
+.nicdark_section{ width: 100%; float: left; }
+/*.nicdark_section.nicdark_imgparallax{ background: url(../img/img3.jpg) 50% 0 fixed; background-size: cover;}*/
+/*END NICDARKSECTION*/
+
+
+
+/* 5 - START NICDARKGRID*/
+.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12{ margin:10px; float:left; display:inline; }
+.grid.nomargin{ margin: 0px; padding: 10px; }
+.grid.percentage{ margin: 0px; padding: 0px; }
+.grid_12.percentage {width:100%;}
+.grid_6.percentage {width:50%;}
+.grid_4.percentage {width:33.33%;}
+.grid_3.percentage {width:25%;}
+.grid_8.percentage {width:66.66%;}
+.grid_9.percentage {width:75%;}
+/*size*/
+.grid_1 {width:80px;}
+.grid_2 {width:180px;}
+.grid_3 {width:280px;}
+.grid_4 {width:380px;}
+.grid_5 {width:480px;}
+.grid_6 {width:580px;}
+.grid_7 {width:680px;}
+.grid_8 {width:780px;}
+.grid_9 {width:880px;}
+.grid_10 {width:980px;}
+.grid_11 {width:1080px;}
+.grid_12 {width:1180px;}
+/*END NICDARKGRID*/
+
+
+
+/* 6 - START NIKDARKWIDTHPERCENTAGE*/
+.nicdark_width_percentage1{ width: 1% !important; }
+.nicdark_width_percentage10{ width: 10% !important; }
+.nicdark_width_percentage20{ width: 20% !important; }
+.nicdark_width_percentage25{ width: 25% !important; }
+.nicdark_width_percentage30{ width: 30% !important; }
+.nicdark_width_percentage40{ width: 40% !important; }
+.nicdark_width_percentage50{ width: 50% !important; }
+.nicdark_width_percentage60{ width: 60% !important; }
+.nicdark_width_percentage70{ width: 70% !important; }
+.nicdark_width_percentage80{ width: 80% !important; }
+.nicdark_width_percentage90{ width: 90% !important; }
+.nicdark_width_percentage100{ width: 100% !important; }
+/*END NIKDARKWIDTHPERCENTAGE*/
+
+
+
+
+
+
+/* 8 - START NICDARKFORMELEMENTS*/
+input[type="text"]{ float: left; border: 0; outline: 0; }
+textarea{ float: left; border: 0; outline: 0; }
+select{ float: left; border: 0; outline: 0; width: 100%; -webkit-appearance: none; cursor: pointer; }
+input[type="submit"]{ cursor: pointer; outline: 0; border: 0; }
+/*size*/
+input[type="text"].small, textarea.small { font-size: 15px; width: 90%; padding: 10px 5%; }
+input[type="text"].medium, textarea.medium { font-size: 17px; width: 90%; padding: 10px 5%; }
+input[type="text"].big, textarea.big { font-size: 17px; width: 80%; padding: 15px 10%; }
+/*size select*/
+select.small { font-size: 15px; padding: 10px 5%; }
+select.medium { font-size: 17px; padding: 10px 5%; }
+select.big { font-size: 17px; padding: 15px 10%; }
+/*END NICDARKFORMELEMENTS*/
+
+
+
+/*********************************************CUSTOM FOR BABY KIDS*************************************************************/
+
+/* 9 - START CLASS FOR PARALLAX SECTION*/
+.nicdark_parallax_img2 { background:url(../img/slide/img2.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_parallax_img3 { background:url(../img/slide/img3.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_parallax_img1 { background:url(../img/slide/img1.jpg) 50% 0 fixed; background-size:cover; }
+
+.nicdark_parallaxx_img1 { background: url(../img/parallax/img1.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_parallaxx_img2 { background: url(../img/parallax/img2.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_parallaxx_img3 { background: url(../img/parallax/img3.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_parallaxx_img5 { background: url(../img/parallax/img5.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_parallaxx_img6 { background: url(../img/parallax/img6.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_parallaxx_img7 { background: url(../img/parallax/img7.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_parallaxx_img8 { background: url(../img/parallax/img8.jpg) 50% 0 fixed; background-size:cover; }
+
+.nicdark_parallaxx_img-teachers-1 { background: url(../img/parallax/img-teachers-1.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_parallaxx_img-single-teacher-1 { background: url(../img/parallax/img-single-teacher-1.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_parallaxx_img-single-teacher-2 { background: url(../img/parallax/img-single-teacher-2.jpg) 50% 0 fixed; background-size:cover; }
+
+.nicdark_parallaxx_img-excursions { background: url(../img/parallax/img-excursions.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_parallaxx_img-single-excursion { background: url(../img/parallax/img-single-excursion.jpg) 50% 0 fixed; background-size:cover; }
+
+.nicdark_parallaxx_img-courses { background: url(../img/parallax/img-courses.jpg) 50% 0 fixed; background-size:cover; }
+
+.nicdark_parallaxx_img-events { background: url(../img/parallax/img-events.jpg) 50% 0 fixed; background-size:cover; }
+.nicdark_parallaxx_img-single-event { background: url(../img/parallax/img-single-event.jpg) 50% 0 fixed; background-size:cover; }
+/*END CLASS FOR PARALLAX SECTION*/
+
+
+
+/*START CUSTOM CLASS TO AVOID INLINE CSS*/
+.nicdark_width60 { width: 60px; }
+.nicdark_width50 { width: 50px; }
+
+.nicdark_copyrightlogo { background-image:url(../img/footer/copyright.jpg); background-size:95px; background-repeat:no-repeat; background-position:left; }
+.nicdark_facebook { background-color:#5977b8; box-shadow:0px 4px 0px 0px #4c67a1;  }
+/*END CUSTOM CLASS TO AVOID INLINE CSS*/
