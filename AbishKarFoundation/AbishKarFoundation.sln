@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbishKarFoundation", "AbishKarFoundation\AbishKarFoundation.csproj", "{4CFDAA8B-2A51-4A24-8598-B597D3900BEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbishkarFoundation.UI", "AbishKarFoundation\AbishkarFoundation.UI.csproj", "{4CFDAA8B-2A51-4A24-8598-B597D3900BEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbishkarFoundation.Model", "AbishkarFoundationModel\AbishkarFoundation.Model.csproj", "{2A3C0391-7A49-4BE4-A0F4-0512A93ECE60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbishkarFoundation.NhibernetMapper", "AbishkarFoundationNhibernetMapper\AbishkarFoundation.NhibernetMapper.csproj", "{B51BAF57-D664-45DF-B6BE-B384437D97B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{4CFDAA8B-2A51-4A24-8598-B597D3900BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CFDAA8B-2A51-4A24-8598-B597D3900BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CFDAA8B-2A51-4A24-8598-B597D3900BEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A3C0391-7A49-4BE4-A0F4-0512A93ECE60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A3C0391-7A49-4BE4-A0F4-0512A93ECE60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A3C0391-7A49-4BE4-A0F4-0512A93ECE60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A3C0391-7A49-4BE4-A0F4-0512A93ECE60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B51BAF57-D664-45DF-B6BE-B384437D97B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B51BAF57-D664-45DF-B6BE-B384437D97B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B51BAF57-D664-45DF-B6BE-B384437D97B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B51BAF57-D664-45DF-B6BE-B384437D97B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
