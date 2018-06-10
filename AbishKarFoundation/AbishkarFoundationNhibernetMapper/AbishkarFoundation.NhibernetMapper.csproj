@@ -68,6 +68,7 @@
     <Compile Include="SchoolMapper.cs" />
     <Compile Include="StudentXYearMapper.cs" />
     <Compile Include="SubjectMapper.cs" />
+    <Compile Include="TestSetMapper.cs" />
     <Compile Include="UserMapper.cs" />
   </ItemGroup>
   <ItemGroup>

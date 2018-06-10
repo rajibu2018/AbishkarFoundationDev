@@ -11,6 +11,8 @@ namespace AbishkarFoundationNhibernetMapper
             Map(s => s.Name).Not.Nullable();
             Map(s => s.Address).Not.Nullable();
             Map(s => s.Description).Length(5000);
+            Map(t => t.Active);
+
         }
     }
 }

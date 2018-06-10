@@ -20,6 +20,7 @@ namespace AbishkarFoundation.NhibernetMapper
             Map(u => u.ModifiedDate);
             Map(u => u.ModifiedBy);
             Map(u => u.LastLoginDate);
+            Map(t => t.Active);
 
         }
     }
