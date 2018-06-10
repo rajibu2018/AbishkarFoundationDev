@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AbishkarFoundationModel
+namespace AbishkarFoundation.Model
 {
     public class User
     {
@@ -16,7 +16,7 @@ namespace AbishkarFoundationModel
         public virtual int CreatedBy { get; set; }
         public virtual DateTime ModifiedDate { get; set; }
         public virtual int ModifiedBy { get; set; }
-
+        public virtual DateTime LastLoginDate { get; set; }
 
 
 

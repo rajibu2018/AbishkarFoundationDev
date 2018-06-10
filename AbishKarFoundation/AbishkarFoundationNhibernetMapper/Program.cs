@@ -3,13 +3,9 @@ using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AbishkarFoundationNhibernetMapper
+namespace AbishkarFoundation.NhibernetMapper
 {
     class Program
     {

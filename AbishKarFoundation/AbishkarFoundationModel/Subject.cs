@@ -4,12 +4,9 @@ using System.Text;
 
 namespace AbishkarFoundation.Model
 {
-    public enum UserType
+    public class Subject
     {
-        Teacher,
-        Student,
-        Father,
-        Mother,
-        Other
+        public virtual int SubjectId { get; set; }
+        public virtual string Name{ get;set;}
     }
 }
