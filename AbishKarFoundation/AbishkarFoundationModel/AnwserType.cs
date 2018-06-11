@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AbishkarFoundation.Model
 {
-  public  enum AnwerType
+  public  enum AnwserType
     {
         TrueOrFalse,
         MultipleChoiceWithSingleAnswer,
