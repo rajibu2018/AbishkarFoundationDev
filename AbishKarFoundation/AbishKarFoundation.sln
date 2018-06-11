@@ -5,9 +5,21 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbishkarFoundation.UI", "AbishKarFoundation\AbishkarFoundation.UI.csproj", "{4CFDAA8B-2A51-4A24-8598-B597D3900BEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbishkarFoundation.Model", "AbishkarFoundationModel\AbishkarFoundation.Model.csproj", "{2A3C0391-7A49-4BE4-A0F4-0512A93ECE60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbishkarFoundation.Model", "AbishkarFoundationModel\AbishkarFoundation.Model.csproj", "{2A3C0391-7A49-4BE4-A0F4-0512A93ECE60}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbishkarFoundation.NhibernetMapper", "AbishkarFoundationNhibernetMapper\AbishkarFoundation.NhibernetMapper.csproj", "{B51BAF57-D664-45DF-B6BE-B384437D97B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C1F29120-C7C4-4E30-8FE4-D6607DE9A20E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{C605FB65-8923-49A3-AF13-8D895F6B1C20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{2739F290-4940-4E23-AEAB-4952E67726F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbishkarFoundationApiService", "AbishkarFoundationApiService\AbishkarFoundationApiService.csproj", "{D1A1258F-54CE-4373-BD6F-B05E3A71264F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbishkarFoundationCoreService", "AbishkarFoundationCoreService\AbishkarFoundationCoreService.csproj", "{DE1D5B55-A28E-4852-8444-474B74B1EA72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbishkarFoundationWebViewModel", "AbishkarFoundationWebViewModel\AbishkarFoundationWebViewModel.csproj", "{011F3BE0-CD2D-460F-9001-EDD32CDA1388}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,9 +39,28 @@ Global
 		{B51BAF57-D664-45DF-B6BE-B384437D97B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B51BAF57-D664-45DF-B6BE-B384437D97B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B51BAF57-D664-45DF-B6BE-B384437D97B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1A1258F-54CE-4373-BD6F-B05E3A71264F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1A1258F-54CE-4373-BD6F-B05E3A71264F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1A1258F-54CE-4373-BD6F-B05E3A71264F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1A1258F-54CE-4373-BD6F-B05E3A71264F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE1D5B55-A28E-4852-8444-474B74B1EA72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE1D5B55-A28E-4852-8444-474B74B1EA72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE1D5B55-A28E-4852-8444-474B74B1EA72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE1D5B55-A28E-4852-8444-474B74B1EA72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{011F3BE0-CD2D-460F-9001-EDD32CDA1388}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{011F3BE0-CD2D-460F-9001-EDD32CDA1388}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{011F3BE0-CD2D-460F-9001-EDD32CDA1388}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{011F3BE0-CD2D-460F-9001-EDD32CDA1388}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2A3C0391-7A49-4BE4-A0F4-0512A93ECE60} = {2739F290-4940-4E23-AEAB-4952E67726F5}
+		{B51BAF57-D664-45DF-B6BE-B384437D97B5} = {2739F290-4940-4E23-AEAB-4952E67726F5}
+		{D1A1258F-54CE-4373-BD6F-B05E3A71264F} = {C1F29120-C7C4-4E30-8FE4-D6607DE9A20E}
+		{DE1D5B55-A28E-4852-8444-474B74B1EA72} = {C1F29120-C7C4-4E30-8FE4-D6607DE9A20E}
+		{011F3BE0-CD2D-460F-9001-EDD32CDA1388} = {C1F29120-C7C4-4E30-8FE4-D6607DE9A20E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E62F57EB-5686-4E5F-8874-D0188B2E522F}
