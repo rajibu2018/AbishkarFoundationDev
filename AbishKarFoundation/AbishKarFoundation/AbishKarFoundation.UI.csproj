@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,8 +53,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AbishkarFoundationApiService\AbishkarFoundationApiService.csproj" />
-    <ProjectReference Include="..\AbishkarFoundationWebViewModel\AbishkarFoundationWebViewModel.csproj" />
+    <ProjectReference Include="..\AbishkarFoundationApiService\AbishkarFoundation.ApiService.csproj" />
+    <ProjectReference Include="..\AbishkarFoundationWebViewModel\AbishkarFoundation.Web.ViewModel.csproj" />
   </ItemGroup>
 
 </Project>

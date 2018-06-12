@@ -21,11 +21,12 @@
         <script src="~/js/blocs.js"></script>
         <link rel='stylesheet' href='~/css/et-line.min.css' />
         <link rel='stylesheet' href='~/css/font-awesome.min.css' />
-
+        <link href="~/css/sb-admin.css" rel="stylesheet" />
+        <link href="~/css/abishkarStyle.css" rel="stylesheet" />
         <!--START CSS-->
         <link rel="stylesheet" href="~/css/nicdark_style.css"> <!--style-->
         <link rel="stylesheet" href="~/css/nicdark_responsive.css"> <!--nicdark_responsive-->
-
+        <link href="~/css/sb-admin.css" rel="stylesheet" />
         <link href='http://fonts.googleapis.com/css?family=Montserrat&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
         <style>
@@ -139,7 +140,7 @@
             <div class="container">
                 <nav class="navbar row">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="index.html"><span class="et-icon-gears icon-sm icon-white zoomIn animated"></span> ABISKAR FOUNDATION</a>
+                        <a class="navbar-brand" href="@Url.Action("Index","Home")"><span class="et-icon-gears icon-sm icon-white zoomIn animated"></span> ABISKAR FOUNDATION</a>
                         <button id="nav-toggle" type="button" class="ui-navbar-toggle navbar-toggle" data-toggle="collapse"
                                 data-target=".navbar-1">
                             <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
@@ -164,6 +165,9 @@
                             </li>
                             <li>
                                 <a onclick="scrollToTarget('#contact_div')">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Login","Account")">Login</a>
                             </li>
                             <li>
                                 <a onclick="scrollToTarget('#faq')">FAQ</a>

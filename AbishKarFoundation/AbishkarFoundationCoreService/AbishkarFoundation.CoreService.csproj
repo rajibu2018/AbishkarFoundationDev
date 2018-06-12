@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AbishkarFoundationModel\AbishkarFoundation.Model.csproj" />
-    <ProjectReference Include="..\AbishkarFoundationWebViewModel\AbishkarFoundationWebViewModel.csproj" />
+    <ProjectReference Include="..\AbishkarFoundationWebViewModel\AbishkarFoundation.Web.ViewModel.csproj" />
   </ItemGroup>
 
 </Project>
