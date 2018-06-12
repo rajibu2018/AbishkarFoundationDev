@@ -13,6 +13,9 @@ namespace AbishkarFoundation.UI.Controllers
             return View();
         }
 
-       
+        public IActionResult Signup()
+        {
+            return View();
+        }
     }
 }
