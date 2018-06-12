@@ -15,11 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{2739F290-4940-4E23-AEAB-4952E67726F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbishkarFoundationApiService", "AbishkarFoundationApiService\AbishkarFoundationApiService.csproj", "{D1A1258F-54CE-4373-BD6F-B05E3A71264F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbishkarFoundation.ApiService", "AbishkarFoundationApiService\AbishkarFoundation.ApiService.csproj", "{D1A1258F-54CE-4373-BD6F-B05E3A71264F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbishkarFoundationCoreService", "AbishkarFoundationCoreService\AbishkarFoundationCoreService.csproj", "{DE1D5B55-A28E-4852-8444-474B74B1EA72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbishkarFoundation.CoreService", "AbishkarFoundationCoreService\AbishkarFoundation.CoreService.csproj", "{DE1D5B55-A28E-4852-8444-474B74B1EA72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbishkarFoundationWebViewModel", "AbishkarFoundationWebViewModel\AbishkarFoundationWebViewModel.csproj", "{011F3BE0-CD2D-460F-9001-EDD32CDA1388}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbishkarFoundation.Web.ViewModel", "AbishkarFoundationWebViewModel\AbishkarFoundation.Web.ViewModel.csproj", "{011F3BE0-CD2D-460F-9001-EDD32CDA1388}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

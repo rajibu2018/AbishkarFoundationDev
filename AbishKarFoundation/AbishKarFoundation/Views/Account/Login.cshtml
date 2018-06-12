@@ -1,11 +1,39 @@
-﻿@{
+﻿@model AbishkarFoundation.Web.ViewModel.LoginViewModel
+@{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_OuterLayout.cshtml";
 }
 <div class="card card-login mx-auto mt-5 login">
     <div class="card-header">Login</div>
     <div class="card-body">
-        <form>
+        @using (Html.BeginForm("FormTwo", "Form", FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.LabelFor(m => m.FirstName)
+                @Html.TextBoxFor(m => m.FirstName, new { placeholder = "Enter First Name", @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.LastName, new { placeholder = "Enter Last Name", type = "text", @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserId)
+                @Html.TextBoxFor(m => m.UserId, new { placeholder = "Enter User Name", @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email, new { placeholder = "Enter Email",type="email", @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { placeholder = "Enter Password", @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "Retype Password", @class = "form-control" })
+            </div>
+        }
+        @*<form>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
@@ -22,7 +50,7 @@
                 </div>
             </div>
             <a class="btn btn-primary btn-block" href="index.html">Login</a>
-        </form>
+        </form>*@
         <div class="text-center">
             <a href="@Url.Action("Signup","Account")" style="display: block!important">Register an Account</a>
             <a c href="forgot-password.html" style="display: block!important">Forgot Password?</a>
