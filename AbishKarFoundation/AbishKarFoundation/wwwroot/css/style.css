@@ -20,8 +20,8 @@ a,button{outline: none!important;} /* Prevent ugly blue glow on chrome and safar
 
 
 /* Globals type styling */
- h1, h2, h3, h4, h5, h6, p, label, .btn, a{
-	font-family:Montserrat;
+h1, h2, h3, h4, h5, h6, p, label, .btn, a {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol" !important;
 }
 
 
