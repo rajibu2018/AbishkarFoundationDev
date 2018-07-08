@@ -1,4 +1,6 @@
-﻿@model AbishkarFoundation.Web.ViewModel.LoginViewModel
+﻿@inject AbishkarFoundation.CoreService.Interfaces.IUserAccountService UserService
+@inject AbishkarFoundation.Repository.Interfaces.IUserRepository UserRepository
+@model AbishkarFoundation.Web.ViewModel.SignUpViewModel
 @{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_OuterLayout.cshtml";
@@ -6,32 +8,9 @@
 <div class="card card-login mx-auto mt-5 login">
     <div class="card-header">Login</div>
     <div class="card-body">
-        @using (Html.BeginForm("FormTwo", "Form", FormMethod.Post))
+        @using (Html.BeginForm("UserLogin", "Account", FormMethod.Post))
         {
-            <div class="form-group">
-                @Html.LabelFor(m => m.FirstName)
-                @Html.TextBoxFor(m => m.FirstName, new { placeholder = "Enter First Name", @class = "form-control" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.LastName)
-                @Html.TextBoxFor(m => m.LastName, new { placeholder = "Enter Last Name", type = "text", @class = "form-control" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.UserId)
-                @Html.TextBoxFor(m => m.UserId, new { placeholder = "Enter User Name", @class = "form-control" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Email)
-                @Html.TextBoxFor(m => m.Email, new { placeholder = "Enter Email",type="email", @class = "form-control" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password, new { placeholder = "Enter Password", @class = "form-control" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.ConfirmPassword)
-                @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "Retype Password", @class = "form-control" })
-            </div>
+            
         }
         @*<form>
             <div class="form-group">
