@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AbishkarFoundation.ApiService.ResponseModel;
 using AbishkarFoundation.CoreService.Interfaces;
+using AbishkarFoundation.Helper;
 using AbishkarFoundation.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,18 +25,9 @@ namespace AbishkarFoundation.ApiService.Controllers
         public SignUpResponse SignUp(SignUpRequest request)
         {
             var dtNow = DateTime.Now;
-            var user = new User()
-            {
-                FirstName=request.FirstName,
-                LastName=request.LastName,
-                Active=true,
-                CreatedDate= dtNow,
-                Email=request.Email,
-                UserName=request.UserName,
-                Password=request.Password,
-                UserType=UserType.Student,
-                
-            };
+            var user = request.MapObject<User>();
+            user.Active = true;
+            user.CreatedDate = dtNow;
             UserAccounService.SignUp(user);
             return new SignUpResponse();
         }

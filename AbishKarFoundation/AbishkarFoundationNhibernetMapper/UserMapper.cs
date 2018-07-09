@@ -12,7 +12,8 @@ namespace AbishkarFoundation.NhibernetMapper
             Map(u => u.LastName).Not.Nullable();
             Map(u => u.Email);
             Map(u => u.UserName).Not.Nullable();
-            Map(u => u.Password);
+            Map(u => u.Hash).Not.Nullable();
+            Map(u => u.Salt).Not.Nullable();
             Map(u => u.DOB);
             Map(u => u.UserType).Not.Nullable();
             Map(u => u.CreatedDate).Not.Nullable();

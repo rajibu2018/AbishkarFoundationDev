@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AbishkarFoundation.Helper\AbishkarFoundation.Helper.csproj" />
     <ProjectReference Include="..\AbishkarFoundationCoreService\AbishkarFoundation.CoreService.csproj" />
     <ProjectReference Include="..\AbishkarFoundationWebViewModel\AbishkarFoundation.Web.ViewModel.csproj" />
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using AbishkarFoundation.Model;
+using System.ComponentModel.DataAnnotations;
 
 namespace AbishkarFoundation.Web.ViewModel
 {
@@ -18,6 +19,7 @@ namespace AbishkarFoundation.Web.ViewModel
         [Required]        
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
+        public UserType UserType { get; set; }
 
     }
 }

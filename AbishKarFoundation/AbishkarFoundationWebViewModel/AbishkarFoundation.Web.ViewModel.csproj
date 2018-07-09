@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AbishkarFoundationModel\AbishkarFoundation.Model.csproj" />
+  </ItemGroup>
+
 </Project>
