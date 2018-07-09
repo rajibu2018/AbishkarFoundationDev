@@ -5,8 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="fluentnhibernate" Version="2.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
+    <PackageReference Include="nhibernate" Version="5.1.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,6 +56,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AbishkarFoundationApiService\AbishkarFoundation.ApiService.csproj" />
+    <ProjectReference Include="..\AbishkarFoundationCoreService\AbishkarFoundation.CoreService.csproj" />
+    <ProjectReference Include="..\AbishkarFoundationRepository\AbishkarFoundation.Repository.csproj" />
     <ProjectReference Include="..\AbishkarFoundationWebViewModel\AbishkarFoundation.Web.ViewModel.csproj" />
   </ItemGroup>
 

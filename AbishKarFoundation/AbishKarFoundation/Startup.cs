@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AbishkarFoundation.CoreService.Impl;
+using AbishkarFoundation.CoreService.Interfaces;
+using AbishkarFoundation.Repository;
+using AbishkarFoundation.Repository.Impl;
+using AbishkarFoundation.Repository.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NHibernate;
 
 namespace AbishKarFoundation
 {
@@ -21,7 +23,25 @@ namespace AbishKarFoundation
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddTransient<ISessionFactory,AbishkarFoundation.S>
+            //services.AddScoped(UserRepository);
+            //#region Repository
+
+            //services.AddScoped<ISession>((provider) =>
+            //{
+            //    var factory = provider.GetService<ISessionFactory>();
+            //    return factory.OpenSession();
+            //});
+            //services.AddScoped<IUserRepository, UserRepository>();
+            //#endregion
+
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+            #region Service
+            services.AddSingleton<IUserRepository, UserRepository>();
+            services.AddSingleton<IUserAccountService, UserAccountService>();
+            #endregion
             services.AddMvc();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,4 +67,5 @@ namespace AbishKarFoundation
             });
         }
     }
+  
 }

@@ -1,31 +1,49 @@
-﻿@{
-    ViewData["Title"] = "Signup";
+﻿@model AbishkarFoundation.Web.ViewModel.SignUpViewModel
+@{
+    ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_OuterLayout.cshtml";
 }
 <div class="card card-login mx-auto mt-5 login">
     <div class="card-header">Login</div>
     <div class="card-body">
-        <form>
+        @using (Html.BeginForm("Signup", "Account", FormMethod.Post))
+        {
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+                @Html.LabelFor(m => m.FirstName)
+                @Html.TextBoxFor(m => m.FirstName, new { placeholder = "Enter First Name", @class = "form-control" })
+                @Html.ValidationMessageFor(m=>m.FirstName)
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+                @Html.LabelFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.LastName, new { placeholder = "Enter Last Name", type = "text", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LastName)
             </div>
             <div class="form-group">
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox"> Remember Password
-                    </label>
-                </div>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName, new { placeholder = "Enter User Name", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.UserName)
             </div>
-            <a class="btn btn-primary btn-block" href="index.html">Login</a>
-        </form>
-        <div class="text-center">
-            <a href="register.html" style="display: block!important">Register an Account</a>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email, new { placeholder = "Enter Email", type = "email", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { placeholder = "Enter Password", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "Retype Password", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </div>
+            <input type="submit" class="btn btn-primary btn-block" value="Sign Up" />
+        }
+        
+        @*<div class="text-center">
+            <a href="@Url.Action("Signup","Account")" style="display: block!important">Register an Account</a>
             <a c href="forgot-password.html" style="display: block!important">Forgot Password?</a>
-        </div>
+        </div>*@
     </div>
 </div>

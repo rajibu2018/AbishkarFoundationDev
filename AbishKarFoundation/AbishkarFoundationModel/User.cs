@@ -10,13 +10,13 @@ namespace AbishkarFoundation.Model
         public virtual string Email { get; set; }
         public virtual string UserName { get; set; }
         public virtual string Password { get; set; }
-        public virtual DateTime DOB { get; set; }
+        public virtual DateTime? DOB { get; set; }
         public virtual UserType UserType { get; set; }
         public virtual DateTime CreatedDate { get; set; }
-        public virtual int CreatedBy { get; set; }
-        public virtual DateTime ModifiedDate { get; set; }
-        public virtual int ModifiedBy { get; set; }
-        public virtual DateTime LastLoginDate { get; set; }
+        public virtual int? CreatedBy { get; set; }
+        public virtual DateTime? ModifiedDate { get; set; }
+        public virtual int? ModifiedBy { get; set; }
+        public virtual DateTime? LastLoginDate { get; set; }
         public virtual bool Active { get; set; }
 
 
