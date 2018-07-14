@@ -33,8 +33,8 @@ namespace AbishkarFoundation.NhibernetMapper
              })
             .BuildConfiguration();
 
-            var exporter = new SchemaExport(configuration);
-            exporter.Execute(true, true, false);
+            //var exporter = new SchemaExport(configuration);
+            //exporter.Execute(true, true, false);
 
             _sessionFactory = configuration.BuildSessionFactory();
         }

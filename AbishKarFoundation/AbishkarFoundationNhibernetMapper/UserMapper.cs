@@ -10,7 +10,7 @@ namespace AbishkarFoundation.NhibernetMapper
             Id(u => u.UserId);
             Map(u => u.FirstName).Not.Nullable();
             Map(u => u.LastName).Not.Nullable();
-            Map(u => u.Email);
+            Map(u => u.Email).Not.Nullable();
             Map(u => u.UserName).Not.Nullable();
             Map(u => u.Hash).Not.Nullable();
             Map(u => u.Salt).Not.Nullable();
@@ -22,7 +22,6 @@ namespace AbishkarFoundation.NhibernetMapper
             Map(u => u.ModifiedBy);
             Map(u => u.LastLoginDate);
             Map(t => t.Active);
-
         }
     }
 }

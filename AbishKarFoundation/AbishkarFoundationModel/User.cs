@@ -19,8 +19,5 @@ namespace AbishkarFoundation.Model
         public virtual int? ModifiedBy { get; set; }
         public virtual DateTime? LastLoginDate { get; set; }
         public virtual bool Active { get; set; }
-
-
-
     }
 }
