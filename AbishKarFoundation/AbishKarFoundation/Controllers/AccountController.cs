@@ -1,4 +1,6 @@
-﻿using AbishkarFoundation.ApiService.Controllers;
+﻿using System;
+using AbishkarFoundation.ApiService.Controllers;
+using AbishkarFoundation.ApiService.RequestModel;
 using AbishkarFoundation.ApiService.ResponseModel;
 using AbishkarFoundation.CoreService.Interfaces;
 using AbishkarFoundation.Helper;
@@ -8,11 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AbishkarFoundation.UI.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
-      
-
-       
         public IUserAccountService UserAccounService { get; set; }
         public AccountController(IUserAccountService userAccountService)
         {
@@ -24,7 +23,7 @@ namespace AbishkarFoundation.UI.Controllers
         }
 
         public IActionResult Signup()
-        {           
+        {            
             return View();
         }
         [HttpPost]
@@ -34,11 +33,16 @@ namespace AbishkarFoundation.UI.Controllers
             {
                 var signUpRequest = viewModel.MapObject<SignUpRequest>();
                 signUpRequest.UserType = UserType.Student;
-                var api = new AccountApiController(UserAccounService);                
-                api.SignUp(signUpRequest);
-                return RedirectToAction("Login");
+                var api = new AccountApiController(UserAccounService);
+                var response = api.SignUp(signUpRequest);
+                NotifyUser(response.ResponseStatus, response.Message);
+                if (response.ResponseStatus == ResponseStatus.Success)
+                {
+                    return RedirectToAction("Login");
+                }
+
             }
             return View(viewModel);
-        }
+        }       
     }
 }

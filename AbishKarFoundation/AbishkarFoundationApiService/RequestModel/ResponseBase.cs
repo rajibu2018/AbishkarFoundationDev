@@ -2,9 +2,14 @@
 {
     public class ResponseBase
     {
-        public ResponseType ResponseType { get; set; }
+        public ResponseStatus ResponseStatus { get; set; }
+        public string Message { get; set; }
+        public ResponseBase()
+        {
+            ResponseStatus = ResponseStatus.Success;
+        }
     }
-    public enum ResponseType
+    public enum ResponseStatus
     {
         Success,
         Failur,

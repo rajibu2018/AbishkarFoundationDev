@@ -4,5 +4,6 @@ namespace AbishkarFoundation.ApiService.ResponseModel
 {
     public class SignUpResponse:ResponseBase
     {
+
     }
 }

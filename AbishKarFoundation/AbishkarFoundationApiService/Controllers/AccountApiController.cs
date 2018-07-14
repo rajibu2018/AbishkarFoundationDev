@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AbishkarFoundation.ApiService.RequestModel;
 using AbishkarFoundation.ApiService.ResponseModel;
 using AbishkarFoundation.CoreService.Interfaces;
 using AbishkarFoundation.Helper;
 using AbishkarFoundation.Model;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AbishkarFoundation.ApiService.Controllers
@@ -24,12 +21,28 @@ namespace AbishkarFoundation.ApiService.Controllers
         [HttpPost]
         public SignUpResponse SignUp(SignUpRequest request)
         {
-            var dtNow = DateTime.Now;
-            var user = request.MapObject<User>();
-            user.Active = true;
-            user.CreatedDate = dtNow;
-            UserAccounService.SignUp(user);
-            return new SignUpResponse();
+            var response = new SignUpResponse();
+
+            try
+            {
+                var dtNow = DateTime.Now;
+                var user = request.MapObject<User>();
+                user.Active = true;
+                user.CreatedDate = dtNow;
+                UserAccounService.SignUp(user, request.Password);
+                response.Message = "Signup process completed succesfully";
+            }
+            catch(ApplicationException ax)
+            {
+                response.ResponseStatus =ResponseStatus.Warning ;
+                response.Message = ax.Message;
+            }
+            catch (Exception ex)
+            {
+                response.ResponseStatus = ResponseStatus.Failur;
+                response.Message = "Unable to complete the signup process";
+            }
+            return response;
         }
     }
 }

@@ -176,13 +176,13 @@
                 </nav>
             </div>
         </div>
-       
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; 2018 - AbishkarFoundation</p>
-            </footer>
-       
+        @Html.Partial("_alerts")
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2018 - AbishkarFoundation</p>
+        </footer>
+
     </div>
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
