@@ -8,6 +8,6 @@ namespace AbishkarFoundation.Repository.Interfaces
         User GetUserById(int userId);
         User GetUserByEmail(string email);
         User GetUserByUserName(string userName);
-
+        User ValidateUser(string userName);
     }
 }

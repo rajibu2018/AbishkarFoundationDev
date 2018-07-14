@@ -1,4 +1,4 @@
-﻿namespace AbishkarFoundation.ApiService.RequestModel
+﻿namespace AbishkarFoundation.ApiService.ResponseModel
 {
     public class ResponseBase
     {

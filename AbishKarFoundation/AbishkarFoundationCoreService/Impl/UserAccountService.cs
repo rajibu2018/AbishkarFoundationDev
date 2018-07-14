@@ -30,5 +30,21 @@ namespace AbishkarFoundation.CoreService.Impl
             UserRepository.Save(user);
             return true;
         }
+
+        public User Login(string userName, string password)
+        {
+            var user = UserRepository.ValidateUser(userName);
+            if(user==null)
+            {
+                throw new ApplicationException("User does not exist");
+            }
+            var hash = AuthenticationHelper.Create(password, user.Salt);
+            if(hash!=user.Hash)
+            {
+                throw new ApplicationException("User login credential does not match");
+            }
+
+            return user;
+        }
     }
 }

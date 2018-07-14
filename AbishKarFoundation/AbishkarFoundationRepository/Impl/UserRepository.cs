@@ -10,12 +10,12 @@ namespace AbishkarFoundation.Repository.Impl
     {
         public User GetUserByEmail(string email)
         {
-            return _session.QueryOver<User>().Where(u=>u.Email==email).SingleOrDefault();
+            return _session.QueryOver<User>().Where(u => u.Email == email).SingleOrDefault();
         }
 
         public User GetUserById(int userId)
-        {            
-            return _session.Get<User>(userId);           
+        {
+            return _session.Get<User>(userId);
         }
 
         public User GetUserByUserName(string userName)
@@ -39,6 +39,11 @@ namespace AbishkarFoundation.Repository.Impl
                 }
             }
             return user;
+        }
+
+        public User ValidateUser(string userName)
+        {
+            return _session.QueryOver<User>().Where(u => u.UserName == userName || u.Email == userName).SingleOrDefault();
         }
     }
 }

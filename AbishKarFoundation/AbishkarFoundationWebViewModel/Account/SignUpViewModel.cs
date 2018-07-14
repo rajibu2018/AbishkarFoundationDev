@@ -1,7 +1,7 @@
 ﻿using AbishkarFoundation.Model;
 using System.ComponentModel.DataAnnotations;
 
-namespace AbishkarFoundation.Web.ViewModel
+namespace AbishkarFoundation.Web.ViewModel.Account
 {
     public class SignUpViewModel
     {

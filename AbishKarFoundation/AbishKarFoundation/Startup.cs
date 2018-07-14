@@ -3,6 +3,7 @@ using AbishkarFoundation.CoreService.Interfaces;
 using AbishkarFoundation.Repository;
 using AbishkarFoundation.Repository.Impl;
 using AbishkarFoundation.Repository.Interfaces;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -34,7 +35,12 @@ namespace AbishKarFoundation
             //});
             //services.AddScoped<IUserRepository, UserRepository>();
             //#endregion
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                    .AddCookie(options =>
+                    {
+                        options.LoginPath = "/Account/Login/";
 
+                    });
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             #region Service
             services.AddSingleton<IUserRepository, UserRepository>();
@@ -47,6 +53,7 @@ namespace AbishKarFoundation
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseAuthentication();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -1,4 +1,4 @@
-﻿using AbishkarFoundation.ApiService.RequestModel;
+﻿using AbishkarFoundation.ApiService.ResponseModel;
 
 namespace AbishkarFoundation.ApiService.ResponseModel
 {

@@ -19,6 +19,7 @@ namespace AbishkarFoundation.ApiService.Controllers
         }
 
         [HttpPost]
+        [Route("User/SignUp")]
         public SignUpResponse SignUp(SignUpRequest request)
         {
             var response = new SignUpResponse();
@@ -41,6 +42,28 @@ namespace AbishkarFoundation.ApiService.Controllers
             {
                 response.ResponseStatus = ResponseStatus.Failur;
                 response.Message = "Unable to complete the signup process";
+            }
+            return response;
+        }
+
+        public LoginResponse Login(LoginRequest request)
+        {
+            var response = new LoginResponse();
+            try
+            {
+                var user= UserAccounService.Login(request.UserName, request.Password);
+                response = user.MapObject<LoginResponse>();
+                response.ResponseStatus = ResponseStatus.Success;
+            }
+            catch (ApplicationException ax)
+            {
+                response.ResponseStatus = ResponseStatus.Warning;
+                response.Message = ax.Message;
+            }
+            catch (Exception ex)
+            {
+                response.ResponseStatus = ResponseStatus.Failur;
+                response.Message = "Unable to complete the login process";
             }
             return response;
         }

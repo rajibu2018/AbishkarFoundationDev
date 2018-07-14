@@ -1,11 +1,5 @@
-﻿using AbishkarFoundation.ApiService.RequestModel;
+﻿using AbishkarFoundation.ApiService.ResponseModel;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-
 
 namespace AbishkarFoundation.UI
 {
@@ -54,15 +48,6 @@ namespace AbishkarFoundation.UI
 
         private void AddAlert(AlertStyle alertStyle, string message, bool dismissable)
         {
-            //var alerts = TempData.ContainsKey(Alert.TempDataKey)
-            //    ? (List<Alert>)TempData[Alert.TempDataKey]
-            //    : new List<Alert>();
-            //var alerts = new Alert()
-            //{
-            //    AlertStyle = alertStyle,
-            //    Message = message,
-            //    Dismissable = dismissable
-            //};
             switch (alertStyle)
             {
                 case AlertStyle.Success:
