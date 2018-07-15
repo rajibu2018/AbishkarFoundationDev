@@ -6,6 +6,7 @@ using AbishkarFoundation.Repository.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NHibernate;
@@ -35,6 +36,13 @@ namespace AbishKarFoundation
             //});
             //services.AddScoped<IUserRepository, UserRepository>();
             //#endregion
+            //services.AddAuthentication("FiverSecurityScheme")
+            //        .AddCookie("FiverSecurityScheme", options =>
+            //        {
+            //            options.AccessDeniedPath = new PathString("/Security/Access");
+            //            options.LoginPath = new PathString("/Account/Login/");
+
+            //        });
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                     .AddCookie(options =>
                     {

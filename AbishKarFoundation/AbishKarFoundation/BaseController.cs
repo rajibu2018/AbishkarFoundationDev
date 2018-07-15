@@ -1,10 +1,24 @@
 ﻿using AbishkarFoundation.ApiService.ResponseModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using System;
+using System.Linq;
+using System.Security.Claims;
+
 
 namespace AbishkarFoundation.UI
 {
-    public class BaseController:Controller
+    public class BaseController:Controller        
     {
+        public UserDetails userDetails { get; set; }
+        //public BaseController()
+        //{
+        //    userDetails.Name = GetUserName();
+        //    userDetails.Email = GetUserEmail();
+        //    userDetails.Role = GetUserRole();
+        //    userDetails.UserId = GetUserId();
+
+        //}
         public void Success(string message, bool dismissable = false)
         {
             AddAlert(AlertStyle.Success, message, dismissable);
@@ -67,6 +81,57 @@ namespace AbishkarFoundation.UI
             }
 
             
+        }
+        public string GetUserId()
+        {
+          return HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+        }
+        public string GetUserEmail()
+        {
+            return HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
+        }
+        public string GetUserName()
+        {
+            return HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Sid)?.Value;
+        }
+        public string GetUserRole()
+        {
+            return HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role)?.Value;
+        }
+    }
+
+    public class UserDetails
+    {
+        public string UserId { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Role { get; set; }
+
+    }
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    public class AdministratorInjectorAttribute : ActionFilterAttribute
+    {
+        public override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+            //base.OnActionExecuted(filterContext);
+            //var result = filterContext.Result as ViewResultBase;
+            //if (result != null)
+            //{
+            //    // the action returned a strongly typed view and passed a model
+            //    var model = result.ViewData.Model as UserDetails;
+            //    if (model != null)
+            //    {
+            //        // the model derived from BaseViewModel
+            //        var controller = filterContext.Controller as BaseController;
+            //        if (controller != null)
+            //        {
+            //            // The controller that executed this action derived
+            //            // from BaseController and posses the IsAdministrator property
+            //            // which is used to set the view model property
+            //            model = controller.userDetails;
+            //        }
+            //    }
+            //}
         }
     }
 }

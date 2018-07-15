@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Abiskar Foundation</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="bootstrap theme, bootstrap template, html5 theme">
+    <meta name="description" content="Free Bootstrap template based on HTML5 and CSS3">
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <environment include="Development">
+
+
+        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/bootstrap.css">
+        <link href="~/css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/animate.css" />
+        <script src="~/js/jquery-2.1.0.js"></script>
+        <script src="~/js/bootstrap.js"></script>
+        <script src="~/js/typer.js"></script>
+        <script src="~/js/blocs.js"></script>
+        <link rel='stylesheet' href='~/css/et-line.min.css' />
+        <link rel='stylesheet' href='~/css/font-awesome.min.css' />
+        <link href="~/css/sb-admin.css" rel="stylesheet" />
+        <link href="~/css/abishkarStyle.css" rel="stylesheet" />
+        <!--START CSS-->
+        <link rel="stylesheet" href="~/css/nicdark_style.css"> <!--style-->
+        <link rel="stylesheet" href="~/css/nicdark_responsive.css"> <!--nicdark_responsive-->
+        <link href="~/css/sb-admin.css" rel="stylesheet" />
+        <link href='http://fonts.googleapis.com/css?family=Montserrat&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+        <style>
+            /* jssor slider bullet navigator skin 05 css */
+            /*
+            .jssorb05 div           (normal)
+            .jssorb05 div:hover     (normal mouseover)
+            .jssorb05 .av           (active)
+            .jssorb05 .av:hover     (active mouseover)
+            .jssorb05 .dn           (mousedown)
+            */
+            .jssorb05 {
+                position: absolute;
+            }
+
+                .jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
+                    position: absolute;
+                    /* size of bullet elment */
+                    width: 16px;
+                    height: 16px;
+                    background: url('img/b05.png') no-repeat;
+                    overflow: hidden;
+                    cursor: pointer;
+                }
+
+                .jssorb05 div {
+                    background-position: -7px -7px;
+                }
+
+                    .jssorb05 div:hover, .jssorb05 .av:hover {
+                        background-position: -37px -7px;
+                    }
+
+                .jssorb05 .av {
+                    background-position: -67px -7px;
+                }
+
+                .jssorb05 .dn, .jssorb05 .dn:hover {
+                    background-position: -97px -7px;
+                }
+
+            /* jssor slider arrow navigator skin 22 css */
+            /*
+            .jssora22l                  (normal)
+            .jssora22r                  (normal)
+            .jssora22l:hover            (normal mouseover)
+            .jssora22r:hover            (normal mouseover)
+            .jssora22l.jssora22ldn      (mousedown)
+            .jssora22r.jssora22rdn      (mousedown)
+            .jssora22l.jssora22lds      (disabled)
+            .jssora22r.jssora22rds      (disabled)
+            */
+            .jssora22l, .jssora22r {
+                display: block;
+                position: absolute;
+                /* size of arrow element */
+                width: 40px;
+                height: 58px;
+                cursor: pointer;
+                background: url('img/a22.png') center center no-repeat;
+                overflow: hidden;
+            }
+
+            .jssora22l {
+                background-position: -10px -31px;
+            }
+
+            .jssora22r {
+                background-position: -70px -31px;
+            }
+
+            .jssora22l:hover {
+                background-position: -130px -31px;
+            }
+
+            .jssora22r:hover {
+                background-position: -190px -31px;
+            }
+
+            .jssora22l.jssora22ldn {
+                background-position: -250px -31px;
+            }
+
+            .jssora22r.jssora22rdn {
+                background-position: -310px -31px;
+            }
+
+            .jssora22l.jssora22lds {
+                background-position: -10px -31px;
+                opacity: .3;
+                pointer-events: none;
+            }
+
+            .jssora22r.jssora22rds {
+                background-position: -70px -31px;
+                opacity: .3;
+                pointer-events: none;
+            }
+        </style>
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <div class="page-container">
+        <div class="bloc bgc-carmine-pink d-bloc" id="nav-bloc">
+            <div class="container">
+                <nav class="navbar row">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="@Url.Action("Index","Home")"><span class="et-icon-gears icon-sm icon-white zoomIn animated"></span> ABISKAR FOUNDATION</a>
+                        <button id="nav-toggle" type="button" class="ui-navbar-toggle navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-1">
+                            <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-1">
+                        <ul class="site-navigation nav navbar-nav">
+                            <li>
+                                <a href="#" onclick="location.href='@Url.Action("Index", "Test")'"><i class="fa fa-fw fa-list"></i>Module</a>
+                            </li>
+                            
+                            <li>
+
+                                <a href="#" onclick="location.href='@Url.Action("Logout", "Account")'"><i class="fa fa-fw fa-sign-out"></i>Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        @Html.Partial("_alerts")
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2018 - AbishkarFoundation</p>
+        </footer>
+
+    </div>
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/jssor.slider-22.2.8.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            jssor_1_slider_init = function () {
+
+                var jssor_1_options = {
+                    $AutoPlay: true,
+                    $SlideDuration: 800,
+                    $SlideEasing: $Jease$.$OutQuint,
+                    $ArrowNavigatorOptions: {
+                        $Class: $JssorArrowNavigator$
+                    },
+                    $BulletNavigatorOptions: {
+                        $Class: $JssorBulletNavigator$
+                    }
+                };
+
+                var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+                /*responsive code begin*/
+                /*you can remove responsive code if you don't want the slider scales while window resizing*/
+                function ScaleSlider() {
+                    var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                    if (refSize) {
+                        refSize = Math.min(refSize, 1920);
+                        jssor_1_slider.$ScaleWidth(refSize);
+                    }
+                    else {
+                        window.setTimeout(ScaleSlider, 30);
+                    }
+                }
+                ScaleSlider();
+                $Jssor$.$AddEvent(window, "load", ScaleSlider);
+                $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+                $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+                /*responsive code end*/
+            };
+        </script>
+        <script type="text/javascript">jssor_1_slider_init();</script>
+        <!-- Google Analytics -->
+        <!-- Google Analytics END -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#submit").click(function () {
+                    var Name = $("#name").val();
+                    var Email = $("#email").val();
+                    var Description = $("#msg").val();
+
+                    if (Name == "") {
+                        alert("Please enter your Name.");
+                        $("#name").focus();
+                        return (false);
+                    }
+
+                    if (Email == "") {
+                        alert("Please enter your Email.");
+                        $("#email").focus();
+                        return (false);
+                    }
+                    else {
+
+                    }
+                    if (Description == "") {
+                        alert("Please enter your Message.");
+                        $("#Message").focus();
+                        return (false);
+                    }
+
+
+
+                    var dataString = 'Name=' + Name + '&Email=' + Email + '&Description=' + Description;
+                    dataString = dataString.replace(/ /gi, "%20");
+                    //alert (dataString);return false;
+                    $.ajax({
+                        type: "POST",
+                        url: "ContactProcess.php",
+                        data: dataString,
+                        success: function (result) {
+                            // alert(result);
+                            if (result.trim() == "InvalidCode") {
+                                alert("Please enter valid verification code.");
+                                $("input#FSecurityCode").focus();
+                                return (false);
+                            }
+                            else {
+                                $('#Enquiry').html("<div id='Enquiry' style='text-align:left;padding:10px;'></div>");
+                                $('#Enquiry').html("<span style='font-weight:bold;'><br>Thank you! Your information has been successfully submitted and you will receive a response from someone at our office shortly.")
+                                    .hide()
+                                    .fadeIn(1500);
+                                //.delay(4000).fadeOut(1500);
+                                $("#name").val('');
+                                $("#email").val('');
+                                $("#msg").val('');
+                            }
+                        }
+                    });
+                    return false;
+                });
+            });
+        </script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

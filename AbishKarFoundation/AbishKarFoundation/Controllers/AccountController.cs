@@ -38,7 +38,7 @@ namespace AbishkarFoundation.UI.Controllers
             if (ModelState.IsValid)
             {
                 var signUpRequest = viewModel.MapObject<SignUpRequest>();
-                signUpRequest.UserType = UserType.Student;
+                signUpRequest.UserType = UserType.Teacher;
                 //var api = new AccountApiController(UserAccounService);
                 var response = AccountApiController.SignUp(signUpRequest);
                 NotifyUser(response.ResponseStatus, response.Message);
@@ -59,15 +59,27 @@ namespace AbishkarFoundation.UI.Controllers
                 var loginRequest = viewModel.MapObject<LoginRequest>();
                 var response = AccountApiController.Login(loginRequest);
                 NotifyUser(response.ResponseStatus, response.Message);
+                var logginUserDetails = new Dictionary<string, string>();
                 var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Name, response.UserId.ToString())
+                        new Claim(ClaimTypes.NameIdentifier, response.UserId.ToString())
                     };
+                claims.Add(new Claim(ClaimTypes.Role, response.UserType.ToString()));
+                claims.Add(new Claim(ClaimTypes.Email, response.Email.ToString()));
+                claims.Add(new Claim(ClaimTypes.Sid, response.UserName.ToString()));
+
                 ClaimsIdentity userIdentity = new ClaimsIdentity(claims, "login");
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
 
                 await HttpContext.SignInAsync(principal);
-                return RedirectToAction("Index", "Teacher");
+                if (response.UserType == UserType.Teacher)
+                {
+                    return RedirectToAction("Index", "Teacher");
+                }
+                else if(response.UserType==UserType.Student)
+                {
+                    return RedirectToAction("Index", "Student");
+                }
             }
             return RedirectToAction("Login", viewModel);
         }
