@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
     <environment include="Development">
 
-        
+
         @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="~/css/bootstrap.css">
@@ -163,16 +163,11 @@
                                 <a onclick="scrollToTarget('#bloc-6')">Testimonials</a>
                             </li>
                             <li>
-                                <a onclick="scrollToTarget('#contact_div')">Login</a>
-                            </li>
-                            <li>
                                 <a onclick="scrollToTarget('#contact_div')">Contact Us</a>
                             </li>
                             <li>
-                                <a href="@Url.Action("Login","Account")">Login</a>
-                            </li>
-                            <li>
-                                <a onclick="scrollToTarget('#faq')">FAQ</a>
+
+                                <a href="#" onclick="location.href='@Url.Action("Logout", "Account")'"><i class="fa fa-fw fa-sign-out"></i>Logout</a>
                             </li>
                         </ul>
                     </div>

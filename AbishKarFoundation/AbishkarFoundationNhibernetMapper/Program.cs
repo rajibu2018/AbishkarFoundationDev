@@ -26,10 +26,15 @@ namespace AbishkarFoundation.NhibernetMapper
             var configuration = Fluently.Configure()
             .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connectionString).ShowSql)
             .Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserMapper>())
+             .ExposeConfiguration(config =>
+             {
+                 new SchemaUpdate(config).Execute(false, true);
+               
+             })
             .BuildConfiguration();
 
-            var exporter = new SchemaExport(configuration);
-            exporter.Execute(true, true, false);
+            //var exporter = new SchemaExport(configuration);
+            //exporter.Execute(true, true, false);
 
             _sessionFactory = configuration.BuildSessionFactory();
         }

@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AbishkarFoundation.Helper\AbishkarFoundation.Helper.csproj" />
     <ProjectReference Include="..\AbishkarFoundationModel\AbishkarFoundation.Model.csproj" />
     <ProjectReference Include="..\AbishkarFoundationRepository\AbishkarFoundation.Repository.csproj" />
   </ItemGroup>

@@ -55,6 +55,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AbishkarFoundation.Helper\AbishkarFoundation.Helper.csproj" />
     <ProjectReference Include="..\AbishkarFoundationApiService\AbishkarFoundation.ApiService.csproj" />
     <ProjectReference Include="..\AbishkarFoundationCoreService\AbishkarFoundation.CoreService.csproj" />
     <ProjectReference Include="..\AbishkarFoundationRepository\AbishkarFoundation.Repository.csproj" />

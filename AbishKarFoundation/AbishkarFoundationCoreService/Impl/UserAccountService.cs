@@ -1,9 +1,8 @@
 ﻿using AbishkarFoundation.CoreService.Interfaces;
+using AbishkarFoundation.Helper;
 using AbishkarFoundation.Model;
 using AbishkarFoundation.Repository.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AbishkarFoundation.CoreService.Impl
 {
@@ -14,11 +13,38 @@ namespace AbishkarFoundation.CoreService.Impl
         {
             UserRepository = userRepository;
         }
-        public bool SignUp(User user)
+        public bool SignUp(User user,string password)
         {
-
+            if(UserRepository.GetUserByEmail(user.Email)!=null)
+            {
+                throw new ApplicationException("User with same email is exist");
+            }
+            if (UserRepository.GetUserByUserName(user.UserName) != null)
+            {
+                throw new ApplicationException("User with same user name is exist");
+            }
+            var salt = Salt.Create();
+            var hash = AuthenticationHelper.Create(password, salt);
+            user.Hash = hash;
+            user.Salt = salt;
             UserRepository.Save(user);
             return true;
+        }
+
+        public User Login(string userName, string password)
+        {
+            var user = UserRepository.ValidateUser(userName);
+            if(user==null)
+            {
+                throw new ApplicationException("User does not exist");
+            }
+            var hash = AuthenticationHelper.Create(password, user.Salt);
+            if(hash!=user.Hash)
+            {
+                throw new ApplicationException("User login credential does not match");
+            }
+
+            return user;
         }
     }
 }

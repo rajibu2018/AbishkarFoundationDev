@@ -7,6 +7,7 @@ namespace AbishkarFoundation.Model
    public class TestSet
     {
         public virtual int TestSetId { get; set; }
+        public virtual bool TestName { get; set; }
         public virtual User Creator { get; set; }
         public virtual DateTime CreatreDate { get; set; }
         public virtual TestSetAccessType AccessType { get; set; }

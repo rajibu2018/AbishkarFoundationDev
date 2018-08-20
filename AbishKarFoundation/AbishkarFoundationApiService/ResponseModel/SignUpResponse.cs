@@ -1,8 +1,9 @@
-﻿using AbishkarFoundation.ApiService.RequestModel;
+﻿using AbishkarFoundation.ApiService.ResponseModel;
 
 namespace AbishkarFoundation.ApiService.ResponseModel
 {
     public class SignUpResponse:ResponseBase
     {
+
     }
 }

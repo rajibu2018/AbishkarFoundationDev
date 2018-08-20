@@ -8,25 +8,19 @@ namespace AbishkarFoundation.Repository.Impl
 {
     public class UserRepository : RepositoryBase, IUserRepository
     {
-        //private readonly ISession _session;
-        //private AppSettings AppSettings { get; set; }
-        
-        //public UserRepository(IOptions<AppSettings> settings) : base(settings)
-        //{
-        //}
+        public User GetUserByEmail(string email)
+        {
+            return _session.QueryOver<User>().Where(u => u.Email == email).SingleOrDefault();
+        }
 
         public User GetUserById(int userId)
         {
-            
             return _session.Get<User>(userId);
-            //using (RepositoryBase repository = new RepositoryBase())
-            //{               
-            //     return   _session.        
-            //}\
-            //using (var portalSession = _session.OpenSession())
-            //{
-            // return   portalSession.Get<User>(userId);
-            //}
+        }
+
+        public User GetUserByUserName(string userName)
+        {
+            return _session.QueryOver<User>().Where(u => u.UserName == userName).SingleOrDefault();
         }
 
         public User Save(User user)
@@ -45,6 +39,11 @@ namespace AbishkarFoundation.Repository.Impl
                 }
             }
             return user;
+        }
+
+        public User ValidateUser(string userName)
+        {
+            return _session.QueryOver<User>().Where(u => u.UserName == userName || u.Email == userName).SingleOrDefault();
         }
     }
 }

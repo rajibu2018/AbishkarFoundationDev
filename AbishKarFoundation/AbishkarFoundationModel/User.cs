@@ -9,7 +9,8 @@ namespace AbishkarFoundation.Model
         public virtual string LastName { get; set; }
         public virtual string Email { get; set; }
         public virtual string UserName { get; set; }
-        public virtual string Password { get; set; }
+        public virtual string Hash { get; set; }
+        public virtual string Salt { get; set; }
         public virtual DateTime? DOB { get; set; }
         public virtual UserType UserType { get; set; }
         public virtual DateTime CreatedDate { get; set; }
@@ -18,8 +19,5 @@ namespace AbishkarFoundation.Model
         public virtual int? ModifiedBy { get; set; }
         public virtual DateTime? LastLoginDate { get; set; }
         public virtual bool Active { get; set; }
-
-
-
     }
 }

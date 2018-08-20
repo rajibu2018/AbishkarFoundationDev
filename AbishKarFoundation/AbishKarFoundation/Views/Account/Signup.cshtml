@@ -1,10 +1,10 @@
-﻿@model AbishkarFoundation.Web.ViewModel.SignUpViewModel
+﻿@model AbishkarFoundation.Web.ViewModel.Account.SignUpViewModel
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Sign Up";
     Layout = "~/Views/Shared/_OuterLayout.cshtml";
 }
 <div class="card card-login mx-auto mt-5 login">
-    <div class="card-header">Login</div>
+    <div class="card-header">Sign Up</div>
     <div class="card-body">
         @using (Html.BeginForm("Signup", "Account", FormMethod.Post))
         {
@@ -41,9 +41,9 @@
             <input type="submit" class="btn btn-primary btn-block" value="Sign Up" />
         }
         
-        @*<div class="text-center">
-            <a href="@Url.Action("Signup","Account")" style="display: block!important">Register an Account</a>
-            <a c href="forgot-password.html" style="display: block!important">Forgot Password?</a>
-        </div>*@
+            <div class="text-center">
+                Existing User? <a href="@Url.Action("Login","Account")" style="display: block!important"> Login</a>
+
+            </div>
     </div>
 </div>

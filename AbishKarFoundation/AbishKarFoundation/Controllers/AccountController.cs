@@ -1,26 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AbishkarFoundation.ApiService.Controllers;
+﻿using AbishkarFoundation.ApiService.Controllers;
+using AbishkarFoundation.ApiService.RequestModel;
 using AbishkarFoundation.ApiService.ResponseModel;
 using AbishkarFoundation.CoreService.Interfaces;
-using AbishkarFoundation.Repository;
-using AbishkarFoundation.Web.ViewModel;
+using AbishkarFoundation.Helper;
+using AbishkarFoundation.Model;
+using AbishkarFoundation.Web.ViewModel.Account;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-
+using System.Collections.Generic;
+using System.Security.Claims;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 namespace AbishkarFoundation.UI.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
-      
-
-       
         public IUserAccountService UserAccounService { get; set; }
+        public AccountApiController AccountApiController;
         public AccountController(IUserAccountService userAccountService)
         {
             UserAccounService = userAccountService;
+            AccountApiController = new AccountApiController(UserAccounService);
         }
         public IActionResult Login()
         {
@@ -28,7 +29,7 @@ namespace AbishkarFoundation.UI.Controllers
         }
 
         public IActionResult Signup()
-        {           
+        {
             return View();
         }
         [HttpPost]
@@ -37,21 +38,57 @@ namespace AbishkarFoundation.UI.Controllers
             //test
             if (ModelState.IsValid)
             {
-                var signUpRequest = new SignUpRequest()
+                var signUpRequest = viewModel.MapObject<SignUpRequest>();
+                signUpRequest.UserType = UserType.Teacher;
+                //var api = new AccountApiController(UserAccounService);
+                var response = AccountApiController.SignUp(signUpRequest);
+                NotifyUser(response.ResponseStatus, response.Message);
+                if (response.ResponseStatus == ResponseStatus.Success)
                 {
-                    FirstName = viewModel.FirstName,
-                    LastName = viewModel.LastName,
-                    Email = viewModel.Email,
-                    UserName = viewModel.UserName,
-                    Password = viewModel.Password,
-                    ConfirmPassword = viewModel.ConfirmPassword
-                };
+                    return RedirectToAction("Login");
+                }
 
-                var api = new AccountApiController(UserAccounService);
-                api.SignUp(signUpRequest);
-                return Login();
             }
             return View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UserLogin(LoginViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var loginRequest = viewModel.MapObject<LoginRequest>();
+                var response = AccountApiController.Login(loginRequest);
+                NotifyUser(response.ResponseStatus, response.Message);
+                var logginUserDetails = new Dictionary<string, string>();
+                var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.NameIdentifier, response.UserId.ToString())
+                    };
+                claims.Add(new Claim(ClaimTypes.Role, response.UserType.ToString()));
+                claims.Add(new Claim(ClaimTypes.Email, response.Email.ToString()));
+                claims.Add(new Claim(ClaimTypes.Sid, response.UserName.ToString()));
+
+                ClaimsIdentity userIdentity = new ClaimsIdentity(claims, "login");
+                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+
+                await HttpContext.SignInAsync(principal);
+                if (response.UserType == UserType.Teacher)
+                {
+                    return RedirectToAction("Index", "Teacher");
+                }
+                else if(response.UserType==UserType.Student)
+                {
+                    return RedirectToAction("Index", "Student");
+                }
+            }
+            return RedirectToAction("Login", viewModel);
+        }
+      
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -8,6 +8,7 @@ namespace AbishkarFoundationNhibernetMapper
         public TestSetMapper()
         {
             Id(t => t.TestSetId);
+            Map(t => t.TestName);
             References(t => t.Creator);
             Map(t => t.CreatreDate);
             Map(t => t.AccessType);
