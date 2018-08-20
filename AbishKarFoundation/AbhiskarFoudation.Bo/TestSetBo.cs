@@ -15,5 +15,6 @@ namespace AbhiskarFoudation.Bo
         public  DateTime? ActiveUpto { get; set; }
         public  bool Active { get; set; }
         public int NumberOfAttender {  get; set; }
+
     }
 }
