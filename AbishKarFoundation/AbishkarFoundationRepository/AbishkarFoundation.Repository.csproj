@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AbhiskarFoudation.Bo\AbhiskarFoudation.Bo.csproj" />
     <ProjectReference Include="..\AbishkarFoundationModel\AbishkarFoundation.Model.csproj" />
     <ProjectReference Include="..\AbishkarFoundationNhibernetMapper\AbishkarFoundation.NhibernetMapper.csproj" />
   </ItemGroup>
