@@ -1,16 +1,21 @@
-﻿
+﻿@model AbishkarFoundation.Web.ViewModel.Module.TestSetCreateViewModel
+
 @{
     ViewData["Title"] = "AddModule";
     Layout = "~/Views/Shared/_TeacherLayout.cshtml";
 }
 
-<div class="breadcrumb"><a href="@Url.Action("Index", "Teacher")">Home</a><span>/</span><a href="@Url.Action("Index", "Module")">Module</a><span>/</span><span>Add Module</span></div>
+<div class="breadcrumb"><a href="@Url.Action("Index", "Teacher")">Home</a><span>/</span><a href="@Url.Action("Index", "Module")">Module</a><span>/</span><span>@Model.ViewName</span></div>
 <div class="card card-login mx-auto mt-5 login dataDiv">
     <div class="card-header">Modules</div>
     <div class="card-body">
         <div><a style="float:right" class="btn btn-success" href="@Url.Action("AddModule","Module")">Add Module</a></div>
         <div class="col-lg-12">
-           
+            <div class="form-group">
+                @Html.LabelFor(m => m.TestName)
+                @Html.TextBoxFor(m => m.TestName, new { placeholder = "Enter Test name", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.TestName)
+            </div>
         </div>
     </div>
 </div>

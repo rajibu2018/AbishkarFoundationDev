@@ -39,7 +39,12 @@ namespace AbishkarFoundation.UI.Controllers
         [Route("EditModule")]
         public ActionResult AddModule(int? id)
         {
-            return View();
+            var viewModel = new TestSetCreateViewModel();
+            if (id!=null)
+            {
+                viewModel.ViewName = "Edit Module";
+            }
+            return View(viewModel);
         }
     }
 }
