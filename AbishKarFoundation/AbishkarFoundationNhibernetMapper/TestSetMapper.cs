@@ -8,15 +8,15 @@ namespace AbishkarFoundationNhibernetMapper
         public TestSetMapper()
         {
             Id(t => t.TestSetId);
-            Map(t => t.TestName);
-            References(t => t.Creator);
-            Map(t => t.CreateDate);
-            Map(t => t.AccessType);
-            Map(t => t.RepeatedAccess);
+            Map(t => t.TestName).Not.Nullable();
+            References(t => t.Creator).Not.Nullable();
+            Map(t => t.CreateDate).Not.Nullable();
+            Map(t => t.AccessType).Not.Nullable();
+            Map(t => t.RepeatedAccess).Not.Nullable();
             Map(t => t.Duration);
             Map(t => t.ActiveUpto);
-            Map(t => t.Active);
-
+            Map(t => t.Active).Not.Nullable();
+            Map(t => t.UpdateDate);
         }
     }
 }
