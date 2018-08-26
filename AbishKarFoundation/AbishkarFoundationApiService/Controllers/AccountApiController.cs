@@ -22,7 +22,7 @@ namespace AbishkarFoundation.ApiService.Controllers
         [Route("User/SignUp")]
         public SignUpResponse SignUp(SignUpRequest request)
         {
-            var response = new SignUpResponse();
+            var response = new SignUpResponse() { ResponseStatus = ResponseStatus.Success };
 
             try
             {
@@ -33,9 +33,9 @@ namespace AbishkarFoundation.ApiService.Controllers
                 UserAccounService.SignUp(user, request.Password);
                 response.Message = "Signup process completed succesfully";
             }
-            catch(ApplicationException ax)
+            catch (ApplicationException ax)
             {
-                response.ResponseStatus =ResponseStatus.Warning ;
+                response.ResponseStatus = ResponseStatus.Warning;
                 response.Message = ax.Message;
             }
             catch (Exception ex)
@@ -48,10 +48,10 @@ namespace AbishkarFoundation.ApiService.Controllers
 
         public LoginResponse Login(LoginRequest request)
         {
-            var response = new LoginResponse();
+            var response = new LoginResponse() { ResponseStatus = ResponseStatus.Success };
             try
             {
-                var user= UserAccounService.Login(request.UserName, request.Password);
+                var user = UserAccounService.Login(request.UserName, request.Password);
                 response = user.MapObject<LoginResponse>();
                 response.ResponseStatus = ResponseStatus.Success;
             }

@@ -10,7 +10,7 @@ namespace AbishkarFoundationNhibernetMapper
             Id(t => t.TestSetId);
             Map(t => t.TestName);
             References(t => t.Creator);
-            Map(t => t.CreatreDate);
+            Map(t => t.CreateDate);
             Map(t => t.AccessType);
             Map(t => t.RepeatedAccess);
             Map(t => t.Duration);
