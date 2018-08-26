@@ -46,5 +46,10 @@ namespace AbishkarFoundation.UI.Controllers
             }
             return View(viewModel);
         }
+        [HttpPost]
+        public ActionResult SaveModule(TestSetCreateViewModel viewModel)
+        {
+            return View("AddModule", viewModel);
+        }
     }
 }
