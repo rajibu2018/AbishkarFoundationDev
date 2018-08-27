@@ -35,7 +35,6 @@ namespace AbishkarFoundation.UI.Controllers
         [HttpPost]
         public IActionResult Signup(SignUpViewModel viewModel)
         {
-            //test
             if (ModelState.IsValid)
             {
                 var signUpRequest = viewModel.MapObject<SignUpRequest>();
