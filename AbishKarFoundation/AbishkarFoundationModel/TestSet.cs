@@ -9,11 +9,12 @@ namespace AbishkarFoundation.Model
         public virtual int TestSetId { get; set; }
         public virtual bool TestName { get; set; }
         public virtual User Creator { get; set; }
-        public virtual DateTime CreatreDate { get; set; }
+        public virtual DateTime CreateDate { get; set; }
         public virtual TestSetAccessType AccessType { get; set; }
         public virtual bool RepeatedAccess { get; set; }
         public virtual int? Duration { get; set; } 
         public virtual DateTime? ActiveUpto { get; set; }
         public virtual bool Active { get; set; }
+        public virtual DateTime UpdateDate { get; set; }
     }
 }

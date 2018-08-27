@@ -9,8 +9,8 @@ namespace AbishkarFoundationNhibernetMapper
         {
             Id(q => q.QuestionId);
             References(q => q.TestSet);
-            Map(q => q.Text);
-            Map(q => q.AnswerType);
+            Map(q => q.Text).Not.Nullable();
+            Map(q => q.AnswerType).Not.Nullable();
             HasMany(q => q.Answers)
            .Inverse()
            .Cascade.All()

@@ -8,8 +8,8 @@ namespace AbishkarFoundationNhibernetMapper
         public AnswerMapper()
         {
             Id(a => a.AnswerId);
-            References(a => a.Question);
-            Map(a => a.Text);
+            References(a => a.Question).Not.Nullable();
+            Map(a => a.Text).Not.Nullable();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace AbishkarFoundationNhibernetMapper
         public SubjectMapper()
         {
             Id(s => s.SubjectId);
-            Map(s => s.Name);
+            Map(s => s.Name).Not.Nullable();
         }
     }
 }

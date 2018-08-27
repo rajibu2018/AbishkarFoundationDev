@@ -11,14 +11,7 @@ namespace AbishkarFoundation.UI
     public class BaseController:Controller        
     {
         public UserDetails userDetails { get; set; }
-        //public BaseController()
-        //{
-        //    userDetails.Name = GetUserName();
-        //    userDetails.Email = GetUserEmail();
-        //    userDetails.Role = GetUserRole();
-        //    userDetails.UserId = GetUserId();
-
-        //}
+        
         public void Success(string message, bool dismissable = false)
         {
             AddAlert(AlertStyle.Success, message, dismissable);

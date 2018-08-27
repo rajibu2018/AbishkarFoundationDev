@@ -1,5 +1,5 @@
 ﻿.login {
-    position: relative;    
+    position: relative;
     min-width: 40%;
     word-wrap: break-word;
     background-color: #fff;
@@ -10,22 +10,28 @@
     margin-right: auto;
     margin-top: 3rem;
     max-width: 50%;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
+
 .card-header {
     padding: .75rem 1.25rem;
     margin-bottom: 0;
     background-color: rgba(0,0,0,.03);
     border-bottom: 1px solid rgba(0,0,0,.125);
 }
+
 .card-body {
     flex: 1 1 auto;
     padding: 10px;
+    height: auto;
+    min-height: 400px;
 }
+
 .text-center {
     text-align: center !important;
 }
+
 .field-validation-error {
     color: #e80c4d !important;
     font-weight: bold !important;
@@ -47,4 +53,61 @@ input.input-validation-error {
 
 .validation-summary-valid {
     display: none;
+}
+
+.dataDiv {
+    min-width: 90% !important;
+    max-width: 98% !important;
+    width: 98% !important;
+}
+
+table {
+    clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    border-collapse: separate !important;
+    background-color: transparent;
+    width: 98%;
+}
+
+thead {
+    background-color: skyblue;
+    height: 25px !important;
+}
+
+    thead tr {
+        height: 35px !important;
+        text-align: center !important;
+    }
+
+th {
+    height: 35px !important;
+    text-align: center !important;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+tbody tr {
+    height: auto;
+}
+
+    tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+.pageMsg {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    border-radius: 4px;
+    z-index: 9999 !important;
+    margin-top:20px;
+}
+.pageMsg-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
 }

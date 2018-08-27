@@ -52,7 +52,11 @@ namespace AbishKarFoundation
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             #region Service
             services.AddSingleton<IUserRepository, UserRepository>();
+            services.AddSingleton<ITestSetRepository, TestSetRepository>();
+
+
             services.AddSingleton<IUserAccountService, UserAccountService>();
+            services.AddSingleton<IModuleService, ModuleService>();
             #endregion
             services.AddMvc();
             
