@@ -6,6 +6,7 @@ using AbishkarFoundation.ApiService.RequestModel;
 using AbishkarFoundation.ApiService.ResponseModel;
 using AbishkarFoundation.CoreService.Interfaces;
 using AbishkarFoundation.Helper;
+using AbishkarFoundation.Model;
 using AbishkarFoundation.Web.ViewModel.Module;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,18 +27,21 @@ namespace AbishkarFoundation.ApiService.Controllers
         [Route("User/teacher/Module")]
         public UsersModuleRespons GetTeachersModules(UsersModuleRequest request)
         {
-            var response = new UsersModuleRespons() { ResponseStatus=ResponseStatus.Success};
+            var response = new UsersModuleRespons() { ResponseStatus = ResponseStatus.Success };
             try
             {
-                if(string.IsNullOrEmpty(request.UserId))
+                if (string.IsNullOrEmpty(request.UserId))
                 {
                     throw new ApplicationException("Not a valid user");
                 }
-                var viewmodels = new List<TestSet>();
+                var viewmodels = new List<TestSetModel>();
                 var modules = ModuleService.GetTestSetBos(request.UserId);
                 foreach (var item in modules)
                 {
-                    viewmodels.Add(item.MapObject<TestSet>());
+                    var vm = item.MapObject<TestSetModel>();
+                    vm.CreatorId = Convert.ToInt32(request.UserId);
+                    viewmodels.Add(vm);
+
                 }
                 response.TesSetViewModel.TestSets = viewmodels;
             }
@@ -54,12 +58,32 @@ namespace AbishkarFoundation.ApiService.Controllers
             return response;
         }
 
-
-
-
-
-
-
+        [HttpPost]
+        [Route("User/Module/Save")]
+        public SaveTestSetResponse SaveTestSetResponse(SaveTestSetRequest request)
+        {
+            var response = new SaveTestSetResponse { ResponseStatus = ResponseStatus.Success };
+            if (string.IsNullOrEmpty(request.TestSetCreateViewModel.TestName))
+            {
+                throw new ApplicationException("Test name is required");
+            }
+            try
+            {
+                var testSet = request.TestSetCreateViewModel.MapObject<TestSet>();
+                ModuleService.SaveTestSet(testSet, request.TestSetCreateViewModel.CreatorId);
+            }
+            catch (ApplicationException ax)
+            {
+                response.ResponseStatus = ResponseStatus.Warning;
+                response.Message = ax.Message;
+            }
+            catch (Exception ex)
+            {
+                response.ResponseStatus = ResponseStatus.Failur;
+                response.Message = "Unable to save module";
+            }
+            return response;
+        }
 
     }
 }

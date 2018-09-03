@@ -1,12 +1,12 @@
 ﻿using AbhiskarFoudation.Bo;
-using System;
+using AbishkarFoundation.Model;
 using System.Collections.Generic;
-using System.Text;
 
 namespace AbishkarFoundation.Repository.Interfaces
 {
-   public interface ITestSetRepository
+    public interface ITestSetRepository
     {
         List<TestSetBo> GetTestSetByUser(int userId);
+        TestSet SaveTestSet(TestSet testSet);
     }
 }

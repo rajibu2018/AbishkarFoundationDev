@@ -27,12 +27,13 @@ namespace AbishkarFoundation.UI.Controllers
                 return RedirectToAction("Login", "Account");
             }
             var request = new UsersModuleRequest { UserId = userId };
-            var viewmodel = ModuleApiController.GetTeachersModules(request);
-            if (viewmodel.TesSetViewModel == null)
+            var response = ModuleApiController.GetTeachersModules(request);
+            NotifyUser(response.ResponseStatus, response.Message);
+            if (response.TesSetViewModel == null)
             {
-                viewmodel.TesSetViewModel = new TestSetViewModel();
+                response.TesSetViewModel = new TestSetViewModel();
             }
-            return View(viewmodel.TesSetViewModel);
+            return View(response.TesSetViewModel);
         }
 
         [Route("AddModule")]
@@ -49,6 +50,20 @@ namespace AbishkarFoundation.UI.Controllers
         [HttpPost]
         public ActionResult SaveModule(TestSetCreateViewModel viewModel)
         {
+            var request = new SaveTestSetRequest();
+
+            if(viewModel.TestSetId==0)
+            {
+                viewModel.CreateDate = DateTime.Now;
+                viewModel.CreatorId = Convert.ToInt32(GetUserId());
+                viewModel.ActiveUpto = DateTime.Now.AddMonths(2);
+            }
+            request.TestSetCreateViewModel = viewModel;
+            
+            var response= ModuleApiController.SaveTestSetResponse(request);
+            viewModel = response.TestSetCreateViewModel;
+            viewModel.ViewName = "Edit Module";
+            NotifyUser(response.ResponseStatus, response.Message);
             return View("AddModule", viewModel);
         }
     }
