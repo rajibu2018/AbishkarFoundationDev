@@ -64,8 +64,7 @@ input.input-validation-error {
 table {
     clear: both;
     margin-top: 6px !important;
-    margin-bottom: 6px !important;
-    border-collapse: separate !important;
+    margin-bottom: 6px !important;    
     background-color: transparent;
     width: 98%;
 }
@@ -76,7 +75,7 @@ thead {
 }
 
     thead tr {
-        height: 35px !important;
+        height: 25px !important;
         text-align: center !important;
     }
 
@@ -90,13 +89,20 @@ th {
 }
 
 tbody tr {
-    height: auto;
+    height: 20px !important;
 }
 
     tbody tr:nth-child(even) {
         background-color: #f2f2f2;
     }
-
+tbody td {
+    height: 20px !important;
+}
+    tbody td .btn-success {
+        height: 25px !important;
+        margin:5px !important;
+        padding-top:2px !important;
+    }
 .pageMsg {
     padding: 15px;
     margin-bottom: 20px;

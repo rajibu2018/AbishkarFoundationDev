@@ -43,6 +43,8 @@ namespace AbishkarFoundation.UI.Controllers
             var viewModel = new TestSetCreateViewModel();
             if (id!=null)
             {
+                var request = new GetTestSetRequest() { TestSetId = id.Value };
+                viewModel = ModuleApiController.GetTestSet(request).TestSetCreateViewModel;
                 viewModel.ViewName = "Edit Module";
             }
             return View(viewModel);
@@ -55,8 +57,15 @@ namespace AbishkarFoundation.UI.Controllers
             if(viewModel.TestSetId==0)
             {
                 viewModel.CreateDate = DateTime.Now;
-                viewModel.CreatorId = Convert.ToInt32(GetUserId());
-                viewModel.ActiveUpto = DateTime.Now.AddMonths(2);
+                viewModel.CreatorId = Convert.ToInt32(GetUserId());                
+                viewModel.Active = true;
+                //test line
+            }
+            else
+            {
+                if (viewModel.CreatorId != Convert.ToInt32(GetUserId()))
+                    NotifyUser(ApiService.ResponseModel.ResponseStatus.Warning, "You are not authorize to edit this module");
+                
             }
             request.TestSetCreateViewModel = viewModel;
             

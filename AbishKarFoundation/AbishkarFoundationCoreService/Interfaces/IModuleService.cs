@@ -10,5 +10,6 @@ namespace AbishkarFoundation.CoreService.Interfaces
     {
         List<TestSetBo> GetTestSetBos(string userId);
         TestSet SaveTestSet(TestSet test,int creator);
+        TestSet GetTestSet(int testSetId);
     }
 }

@@ -17,7 +17,8 @@ namespace AbishkarFoundation.Repository.Impl
                 try
                 {
                     repository.BeginTransaction();
-                    _session.SaveOrUpdate(testSet);
+                    _session.Evict(testSet);
+                    _session.Merge(testSet);
                     repository.CommitTransaction();
                 }
                 catch (Exception ex)
@@ -36,6 +37,11 @@ namespace AbishkarFoundation.Repository.Impl
             return _session.CreateSQLQuery("select TestSetId,TestName,AccessType,CreateDate,RepeatedAccess,Duration,ActiveUpto, NumberOfQuestion,Active,0 as NumberOfAttender from TestSet t left join(select count(QuestionId) NumberOfQuestion, TestSet_id from Question group by TestSet_id) q on t.TestSetId = q.TestSet_id where t.Creator_id =:userId").SetParameter("userId", userId)
             .SetResultTransformer(NHibernate.Transform.Transformers.AliasToBean<TestSetBo>())
             .List<TestSetBo>().ToList(); ;
+        }
+
+        public TestSet GetTestSet(int testSetId)
+        {
+            return _session.Get<TestSet>(testSetId);
         }
     }
 }

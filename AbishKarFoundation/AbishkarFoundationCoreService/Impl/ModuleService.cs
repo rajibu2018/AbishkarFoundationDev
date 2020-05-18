@@ -37,8 +37,26 @@ namespace AbishkarFoundation.CoreService.Impl
             {
                 throw new ApplicationException("Test name is required");
             }
-            testSet.Creator = UserRepository.GetUserById(creator);
+            
+            if (testSet.TestSetId == 0)
+            {
+                testSet.Creator = UserRepository.GetUserById(creator);
+            }
+            else
+            {
+                testSet.UpdateDate = DateTime.Now;
+            }
             return TestSetRepository.SaveTestSet(testSet);
+        }
+
+        public TestSet GetTestSet(int testSetId)
+        {
+            if(testSetId<=0)
+            {
+                throw new ApplicationException("Not a valid module");
+            }
+
+            return TestSetRepository.GetTestSet(testSetId);
         }
     }
 }

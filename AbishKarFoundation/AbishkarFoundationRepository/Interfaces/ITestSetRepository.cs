@@ -8,5 +8,6 @@ namespace AbishkarFoundation.Repository.Interfaces
     {
         List<TestSetBo> GetTestSetByUser(int userId);
         TestSet SaveTestSet(TestSet testSet);
+        TestSet GetTestSet(int testSetId);
     }
 }

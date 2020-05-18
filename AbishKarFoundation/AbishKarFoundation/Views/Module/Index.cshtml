@@ -25,10 +25,10 @@
                     <tbody>
                         @foreach (var item in Model.TestSets)
                         {
-                            <tr>
+                            <tr style="text-align:center">
                                 <td>@item.TestName</td>
-                                <td>Status</td>
-                                <td>Active Upto</td>
+                                <td><input type="checkbox" id="chk_@item.TestSetId" checked="@item.Active"></td>
+                                <td>@item.ActiveUpto.Value.ToShortDateString()</td>
                                 <td><a href="@Url.Action("AddModule","Module")"><span style="text-decoration:underline">@item.NumberOfQuestions</span></a></td>
                                 <td><a href="@Url.Action("AddModule","Module")"><span style="text-decoration:underline">@item.NumberOfAttender</span></a></td>
                                 <td><a style="float:left" class="btn btn-success" href="@Url.Action("AddModule","Module",new { id=item.TestSetId})">Edit</a></td>

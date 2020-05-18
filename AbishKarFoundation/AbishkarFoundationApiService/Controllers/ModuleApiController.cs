@@ -70,7 +70,9 @@ namespace AbishkarFoundation.ApiService.Controllers
             try
             {
                 var testSet = request.TestSetCreateViewModel.MapObject<TestSet>();
-                ModuleService.SaveTestSet(testSet, request.TestSetCreateViewModel.CreatorId);
+                testSet = ModuleService.SaveTestSet(testSet, request.TestSetCreateViewModel.CreatorId);
+                var responseModel = testSet.MapObject<TestSetCreateViewModel>();
+                response.TestSetCreateViewModel = responseModel;
             }
             catch (ApplicationException ax)
             {
@@ -84,6 +86,33 @@ namespace AbishkarFoundation.ApiService.Controllers
             }
             return response;
         }
-
+        [HttpGet]
+        [Route("User/get/TestSet")]
+        public GetTesSetResponse GetTestSet(GetTestSetRequest request)
+        {
+            var response = new GetTesSetResponse { ResponseStatus = ResponseStatus.Success };
+            if(request.TestSetId<0)
+            {
+                throw new ApplicationException("Not a valid module");
+            }
+            try
+            {
+                var testSet= ModuleService.GetTestSet(request.TestSetId);
+                var responseModel = testSet.MapObject<TestSetCreateViewModel>();
+                responseModel.CreatorId = testSet.Creator.UserId;
+                response.TestSetCreateViewModel = responseModel;
+            }
+            catch (ApplicationException ax)
+            {
+                response.ResponseStatus = ResponseStatus.Warning;
+                response.Message = ax.Message;
+            }
+            catch (Exception ex)
+            {
+                response.ResponseStatus = ResponseStatus.Failur;
+                response.Message = "Unable to retrive module";
+            }
+            return response;
+        }
     }
 }
